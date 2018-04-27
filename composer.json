@@ -26,6 +26,7 @@
         "drupal/context": "^4.0@beta",
         "drupal/core": "~8.5.3",
         "drupal/devel": "^1.2",
+        "drupal/fontawesome": "^2.1",
         "drupal/module_filter": "^3.1",
         "drupal/superfish": "^1.2",
         "drush/drush": "^9.0.0",
