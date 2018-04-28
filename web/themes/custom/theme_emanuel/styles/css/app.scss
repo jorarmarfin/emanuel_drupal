@@ -1,0 +1,90 @@
+/*mis stilos sass*/
+
+@import 'mystyles/colors';
+
+/*Fondo*/
+.bg-color-azul-oscuro{background:$azul_oscuro;}
+.bg-color-azul{background:$azul;}
+.bg-color-azul-claro{background:$azul_claro;}
+
+.bg-color-verde{background:$verde;}
+
+
+/*Textos*/
+.text-color-white{color:$white;}
+
+/*leaderboard*/
+#leaderboard{
+	background:$white;
+	.regions{
+		background-color:transparent;
+	}
+}
+
+/*Header*/
+#masthead{background:$white;padding-top: 20px;height:100px;}
+
+#navbar{
+	background-color:$white;
+	color:$azul;height: 50px;
+	padding-top: 8px;
+}
+
+#superfish-main--2{
+	li{
+		font-weight: bold;
+		height: 35px;
+		padding-top:5px;
+		&:hover{
+			background-color: #0088cb;
+		    border-radius: 5px;
+		    color: white;
+		    a{
+		    	text-decoration-line: none;
+		    }
+		}
+
+	}
+
+}
+/* Feature Box */
+.feature-box {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.feature-box .feature-box-icon {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: $azul;
+	border-radius: 100%;
+	color: #FFF;
+	font-size: 16px;
+	font-size: 1rem;
+	position: relative;
+	top: 7px;
+	text-align: center;
+	padding: 0.8em;
+	height: 1px;
+	min-width: 2.7em;
+	min-height: 2.7em;
+}
+
+.feature-box .feature-box-info {
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 100%;
+	flex: 1 1 100%;
+	padding-left: 15px;
+}
+
+.feature-box.align-items-center .feature-box-icon {
+	top: 0;
+}

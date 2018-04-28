@@ -1,0 +1,87 @@
+/*mis stilos sass*/
+/**	Colores **/
+/*Fondo*/
+.bg-color-azul-oscuro {
+  background: #01366c; }
+
+.bg-color-azul {
+  background: #0088bc; }
+
+.bg-color-azul-claro {
+  background: #007ac3; }
+
+.bg-color-verde {
+  background: #0aadaa; }
+
+/*Textos*/
+.text-color-white {
+  color: #fff; }
+
+/*leaderboard*/
+#leaderboard {
+  background: #fff; }
+  #leaderboard .regions {
+    background-color: transparent; }
+
+/*Header*/
+#masthead {
+  background: #fff;
+  padding-top: 20px;
+  height: 100px; }
+
+#navbar {
+  background-color: #fff;
+  color: #0088bc;
+  height: 50px;
+  padding-top: 8px; }
+
+#superfish-main--2 li {
+  font-weight: bold;
+  height: 35px;
+  padding-top: 5px; }
+  #superfish-main--2 li:hover {
+    background-color: #0088cb;
+    border-radius: 5px;
+    color: white; }
+    #superfish-main--2 li:hover a {
+      text-decoration-line: none; }
+
+/* Feature Box */
+.feature-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.feature-box .feature-box-icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #0088bc;
+  border-radius: 100%;
+  color: #FFF;
+  font-size: 16px;
+  font-size: 1rem;
+  position: relative;
+  top: 7px;
+  text-align: center;
+  padding: 0.8em;
+  height: 1px;
+  min-width: 2.7em;
+  min-height: 2.7em; }
+
+.feature-box .feature-box-info {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  padding-left: 15px; }
+
+.feature-box.align-items-center .feature-box-icon {
+  top: 0; }
+
+/*# sourceMappingURL=custom.css.map */

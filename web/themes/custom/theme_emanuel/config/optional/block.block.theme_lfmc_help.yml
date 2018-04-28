@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - theme_lfmc
+id: theme_lfmc_help
+theme: theme_lfmc
+region: content
+weight: 2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
