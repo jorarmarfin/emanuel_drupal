@@ -46,6 +46,15 @@
     #superfish-main--2 li:hover a {
       text-decoration-line: none; }
 
+#superfish-account--2 {
+  float: right; }
+  #superfish-account--2 a {
+    color: #8c8686;
+    text-decoration: none; }
+    #superfish-account--2 a:hover {
+      background: #f9e5e5;
+      border-radius: 5px; }
+
 /* Feature Box */
 .feature-box {
   display: -webkit-box;

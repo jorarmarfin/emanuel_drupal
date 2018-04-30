@@ -175,7 +175,7 @@ samp {
 
 .pr-features {
   color: #363636;
-  background-color: #d3d3d3;
+  background-color: #fff;
 }
 
 .pr-features .regions {
@@ -184,7 +184,7 @@ samp {
 
 .pr-subfeatures {
   color: #363636;
-  background-color: #d3d3d3;
+  background-color: #fff;
 }
 
 .pr-subfeatures .regions {
@@ -193,7 +193,7 @@ samp {
 
 .pr-footer {
   color: #ffffff;
-  background-color: #666666;
+  background-color: #000;
 }
 
 .pr-footer .regions {

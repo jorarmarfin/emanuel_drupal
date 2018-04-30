@@ -16,6 +16,7 @@
 /*leaderboard*/
 #leaderboard{
 	background:$white;
+
 	.regions{
 		background-color:transparent;
 	}
@@ -45,8 +46,22 @@
 		}
 
 	}
-
 }
+
+#superfish-account--2{
+
+	float: right;
+	a{
+		color: #8c8686;
+		text-decoration: none;
+		&:hover{
+			background: #f9e5e5;
+    		border-radius: 5px;
+		}
+	}
+}
+
+
 /* Feature Box */
 .feature-box {
 	display: -webkit-box;
