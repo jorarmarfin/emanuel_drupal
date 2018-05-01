@@ -23,6 +23,13 @@
   #leaderboard .regions {
     background-color: transparent; }
 
+#system-branding-block {
+  color: #0088bc;
+  font-weight: bold; }
+  #system-branding-block a {
+    color: #0088bc;
+    font-weight: bold; }
+
 /*Header*/
 #masthead {
   background: #fff;
@@ -35,17 +42,61 @@
   height: 50px;
   padding-top: 8px; }
 
-#superfish-main--2 li {
-  font-weight: bold;
-  height: 35px;
-  padding-top: 5px; }
-  #superfish-main--2 li:hover {
-    background-color: #0088cb;
-    border-radius: 5px;
-    color: white; }
-    #superfish-main--2 li:hover a {
-      text-decoration-line: none; }
+/** Menu Principal */
+.l-navbar {
+  margin-bottom: 10px; }
 
+#rid-navbar {
+  color: #0088bc;
+  margin-bottom: 10px; }
+
+#superfishmain ul li a {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px 4px 0 0; }
+  #superfishmain ul li a:hover {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+    background: #0088bc;
+    margin-right: 3px; }
+  #superfishmain ul li a.is-active {
+    border-radius: 4px;
+    background: #0088bc;
+    color: white;
+    margin-right: 3px; }
+
+#rid-features-first h2, #rid-features-second h2, #rid-features-third h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #f7f7f7;
+  padding: 5px;
+  border-radius: 4px 4px 0 0;
+  color: #0088bc;
+  height: 42px;
+  padding: 15px;
+  margin: 0px; }
+#rid-features-first .block, #rid-features-second .block, #rid-features-third .block {
+  border: solid;
+  border-right-width: 1px;
+  border-color: #CCC;
+  border-width: 1px;
+  border-radius: 4px; }
+  #rid-features-first .block .view-rows, #rid-features-second .block .view-rows, #rid-features-third .block .view-rows {
+    padding: 10px;
+    font-size: 0.9rem; }
+    #rid-features-first .block .view-rows .views-field-field-concepto, #rid-features-second .block .view-rows .views-field-field-concepto, #rid-features-third .block .view-rows .views-field-field-concepto {
+      font-weight: bold; }
+
+/*
+
+ */
+/**	Top Menu **/
 #superfish-account--2 {
   float: right; }
   #superfish-account--2 a {
@@ -54,6 +105,11 @@
     #superfish-account--2 a:hover {
       background: #f9e5e5;
       border-radius: 5px; }
+
+#main-content {
+  background: white; }
+  #main-content .container {
+    background: white; }
 
 /* Feature Box */
 .feature-box {

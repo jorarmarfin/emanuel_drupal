@@ -22,6 +22,14 @@
 	}
 }
 
+#system-branding-block{
+	color:$azul;
+	font-weight: bold;
+	a{
+		color:$azul;
+		font-weight: bold;
+	}
+}
 /*Header*/
 #masthead{background:$white;padding-top: 20px;height:100px;}
 
@@ -31,23 +39,75 @@
 	padding-top: 8px;
 }
 
-#superfish-main--2{
-	li{
-		font-weight: bold;
-		height: 35px;
-		padding-top:5px;
-		&:hover{
-			background-color: #0088cb;
-		    border-radius: 5px;
-		    color: white;
-		    a{
-		    	text-decoration-line: none;
-		    }
+/** Menu Principal */
+.l-navbar{
+	margin-bottom: 10px;
+}
+#rid-navbar{
+	color:$azul;
+    margin-bottom: 10px;
+}
+#superfishmain{
+	ul{
+		li{
+			a{
+				text-transform:uppercase;
+				font-size: 12px;
+				font-weight: 700;
+				border-radius: 4px 4px 0 0;
+				&:hover{
+					color:$white;
+					text-transform:uppercase;
+					font-size: 12px;
+					font-weight: 700;
+					text-decoration: none;
+					border-radius: 4px 4px 0 0;
+					background: $azul;
+					margin-right:3px;
+				}
+				&.is-active{
+					border-radius: 4px;
+					background: $azul;
+					color:white;
+					margin-right:3px;
+				}
+			}
 		}
-
 	}
 }
+#rid-features-first,#rid-features-second,#rid-features-third{
+	h2{
+	    font-size: 13px;
+	    text-transform: uppercase;
+	    font-weight: bold;
+	    background: #f7f7f7;
+	    padding: 5px;
+	    border-radius: 4px 4px 0 0;
+	    color: #0088bc;
+	    height: 42px;
+	    padding: 15px;
+	    margin:0px;
+    }
+    .block{
+	    border: solid;
+	    border-right-width: 1px;
+	    border-color: #CCC;
+	    border-width: 1px;
+	    border-radius: 4px;
+	    .view-rows{
+			padding:10px;
+			font-size: 0.9rem;
+			.views-field-field-concepto{
+				font-weight: bold;
+			}
+	    }
 
+    }
+}
+/*
+
+ */
+/**	Top Menu **/
 #superfish-account--2{
 
 	float: right;
@@ -58,6 +118,13 @@
 			background: #f9e5e5;
     		border-radius: 5px;
 		}
+	}
+}
+
+#main-content{
+	background:white;
+	.container{
+		background:white;
 	}
 }
 
