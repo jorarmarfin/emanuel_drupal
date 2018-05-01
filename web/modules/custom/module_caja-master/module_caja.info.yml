@@ -1,5 +1,0 @@
-name: 'module_caja'
-type: module
-description: 'Modulo de resumen de caja'
-core: 8.x
-package: 'Custom'

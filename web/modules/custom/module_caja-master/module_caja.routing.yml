@@ -1,8 +1,0 @@
-
-module_caja.default_controller_mostrar:
-  path: 'caja'
-  defaults:
-    _controller: '\Drupal\module_caja\Controller\DefaultController::mostrar'
-    _title: 'Modulo de caja'
-  requirements:
-    _permission: 'access content'
