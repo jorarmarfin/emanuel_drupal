@@ -1,0 +1,101 @@
+<!-- Add you custom twig html here -->
+<div class="Caja">
+<form action="/caja">
+	<label>Año</label>
+	<select name="anio" class="select-year">
+		<option selected="selected" value="_none" >-Año-</option>
+		{% for year in data.years %}
+		  <option value="{{ year }}">{{ year }}</option>
+		{% endfor %}
+	</select>
+	<label>Mes</label>
+	<select name="mes" class="select-year">
+		<option selected="selected" value="_none" >-Mes-</option>
+		{% for month in data.months %}
+		  <option value="{{ month['value'] }}">{{ month['title'] }}</option>
+		{% endfor %}
+	</select>
+	<input type="submit" value="Añadir Filtro" class="btn ">
+</form>
+<p><h1>Año de consulta {{ data.anio}} mes {{ data.mes}}</h1></p>
+
+	<div class="mytabla">
+		<p><h2>Total de Ingresos</h2></p>
+		<table>
+			<thead>
+				<tr>
+				<th>prueba</th>
+				<th>valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ingreso in data.ingresos %}
+
+				<tr>
+					<td>{{ingreso['title']}}</td>
+					<td>{{ingreso['cantidad']}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>{{data.suma}}</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="mytabla">
+		<p><h2>Total de Egresos</h2></p>
+		<table>
+			<thead>
+				<tr>
+				<th>prueba</th>
+				<th>valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ingreso in data.ingresos %}
+
+				<tr>
+					<td>{{ingreso['title']}}</td>
+					<td>{{ingreso['cantidad']}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>{{data.suma}}</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="mytabla">
+		<p><h2>Porcentajes</h2></p>
+		<table>
+			<thead>
+				<tr>
+				<th>prueba</th>
+				<th>valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ingreso in data.ingresos %}
+
+				<tr>
+					<td>{{ingreso['title']}}</td>
+					<td>{{ingreso['cantidad']}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>{{data.suma}}</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+
+</div>

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains module_caja.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function module_caja_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the module_caja module.
+    case 'help.page.module_caja':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Modulo de resumen de caja') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function module_caja_theme() {
+  return [
+    'module_caja' => [
+    'variables' =>[
+      'data' => NULL,
+    ],
+    'template' => 'module-caja'
+    ],
+  ];
+}
