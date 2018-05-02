@@ -29,7 +29,10 @@ function flujo_caja_help($route_name, RouteMatchInterface $route_match) {
 function flujo_caja_theme() {
   return [
     'flujo_caja' => [
-      'render element' => 'children',
+    'variables' =>[
+      'data' => NULL,
+    ],
+    'template' => 'flujo-caja'
     ],
   ];
 }
