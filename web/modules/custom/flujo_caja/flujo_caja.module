@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains flujo_caja.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function flujo_caja_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the flujo_caja module.
+    case 'help.page.flujo_caja':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Muestra el flujo de caja del grupo') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function flujo_caja_theme() {
+  return [
+    'flujo_caja' => [
+      'render element' => 'children',
+    ],
+  ];
+}

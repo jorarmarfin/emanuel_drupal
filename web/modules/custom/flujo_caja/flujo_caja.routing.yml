@@ -1,0 +1,8 @@
+
+flujo_caja.default_controller_mostrar:
+  path: '/flujo_caja/mostrar'
+  defaults:
+    _controller: '\Drupal\flujo_caja\Controller\DefaultController::mostrar'
+    _title: 'Muestra flujo de caja'
+  requirements:
+    _permission: 'access content'

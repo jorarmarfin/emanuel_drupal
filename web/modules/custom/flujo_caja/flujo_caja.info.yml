@@ -1,0 +1,5 @@
+name: 'Flujo Caja'
+type: module
+description: 'Muestra el flujo de caja del grupo'
+core: 8.x
+package: 'Custom'
