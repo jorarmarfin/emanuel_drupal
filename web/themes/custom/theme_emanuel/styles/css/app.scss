@@ -31,7 +31,11 @@
 	}
 }
 /*Header*/
-#masthead{background:$white;padding-top: 20px;height:100px;}
+#masthead{
+	background:$white;
+	/* padding-top: 20px;
+	height:100px; */
+}
 
 #navbar{
 	background-color:$white;

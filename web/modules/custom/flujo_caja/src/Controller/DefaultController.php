@@ -25,8 +25,11 @@ class DefaultController extends ControllerBase {
     $data['anio'] = $year;
     $data['mes'] = $mes;
 
-    $data['ingresos'] = $this->getData()['data'];
-    $data['suma'] = $this->getData()['suma'];
+    $data['ingresos'] = $this->getData('ingreso')['data'];
+    $data['suma_ingresos'] = $this->getData('ingreso')['suma'];
+
+    $data['salidas'] = $this->getData('salida')['data'];
+    $data['suma_salidas'] = $this->getData('salida')['suma'];
 
 
     return [
@@ -54,13 +57,18 @@ class DefaultController extends ControllerBase {
         ['value'=>12,'title'=>'Diciembre'],
     ];
   }
-  public function getData()
+  public function getData($tipo)
   {
     $query = db_select('node_field_data', 'nfd')->distinct();
              $query->fields('nfd',['nid','title']);
-             $query->addField('nfc','field_monto_value');
-             $query->join('node__field_monto','nfc','nfc.entity_id = nfd.nid');
+             $query->addField('nfm','field_monto_value');
+             $query->addField('ttfd','name');
+             $query->join('node__field_monto','nfm','nfm.entity_id = nfd.nid');
+             $query->join('node__field_concepto','nfc','nfc.entity_id = nfd.nid');
+             $query->join('taxonomy_term_field_data','ttfd','ttfd.tid = nfc.field_concepto_target_id');
+             $query->join('node_revision__field_tipo','nft','nft.entity_id = nfd.nid');
              $query->condition('nfd.type','caja');
+             $query->condition('nft.field_tipo_value',$tipo);
 
     $query = $query->execute()->fetchAll();
     $result = [];
@@ -70,6 +78,7 @@ class DefaultController extends ControllerBase {
        array_push($result,[
                 'nid' => $item->nid,
                 'title' => $item->title,
+                'concepto' => $item->name,
                 'cantidad' => $item->field_monto_value,
             ]);
        $suma += $item->field_monto_value;

@@ -24,6 +24,7 @@
 		<table>
 			<thead>
 				<tr>
+				<th>#</th>
 				<th>prueba</th>
 				<th>valor</th>
 				</tr>
@@ -32,41 +33,46 @@
 				{% for ingreso in data.ingresos %}
 
 				<tr>
-					<td>{{ingreso['title']}}</td>
+					<td>{{loop.index}}</td>
+					<td>{{ingreso['concepto']}}</td>
 					<td>{{ingreso['cantidad']}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 			<tfoot>
 				<tr>
+					<th></th>
 					<th>Total</th>
-					<th>{{data.suma}}</th>
+					<th>{{data.suma_ingresos}}</th>
 				</tr>
 			</tfoot>
 		</table>
 	</div>
 	<div class="mytabla">
-		<p><h2>Total de Egresos</h2></p>
+		<p><h2>Total de Salidas</h2></p>
 		<table>
 			<thead>
 				<tr>
+				<th>#</th>
 				<th>prueba</th>
 				<th>valor</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for ingreso in data.ingresos %}
+				{% for salida in data.salidas %}
 
 				<tr>
-					<td>{{ingreso['title']}}</td>
-					<td>{{ingreso['cantidad']}}</td>
+					<td>{{loop.index}}</td>
+					<td>{{salida['concepto']}}</td>
+					<td>{{salida['cantidad']}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 			<tfoot>
 				<tr>
+					<th></th>
 					<th>Total</th>
-					<th>{{data.suma}}</th>
+					<th>{{data.suma_salidas}}</th>
 				</tr>
 			</tfoot>
 		</table>
