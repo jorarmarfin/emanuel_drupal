@@ -1,6 +1,6 @@
 <!-- Add you custom twig html here -->
 <div class="Caja">
-<form action="/flujo_caja/mostrar">
+<form action="/flujo_caja/mostrar" id="formulario_caja">
 	<label>Año</label>
 	<select name="anio" class="select-year">
 		<option selected="selected" value="_none" >-Año-</option>
@@ -37,7 +37,7 @@
 					<td>{{loop.index}}</td>
 					<td>{{ingreso['fecha']}}</td>
 					<td>{{ingreso['concepto']}}</td>
-					<td>{{ingreso['cantidad']}}</td>
+					<td> <span class="cantidad_de_ingreso">{{ingreso['cantidad']}}</span></td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -69,7 +69,7 @@
 					<td>{{loop.index}}</td>
 					<td>{{salida['fecha']}}</td>
 					<td>{{salida['concepto']}}</td>
-					<td>{{salida['cantidad']}}</td>
+					<td><span class="cantidad_de_salida">{{salida['cantidad']}}</span> </td>
 				</tr>
 				{% endfor %}
 			</tbody>

@@ -25,11 +25,13 @@ class DefaultController extends ControllerBase {
     $data['anio'] = $year;
     $data['mes'] = $mes;
 
-    $data['ingresos'] = $this->getData('ingreso',$mes,$year)['data'];
-    $data['suma_ingresos'] = $this->getData('ingreso',$mes,$year)['suma'];
+    $ingresos = $this->getData('ingreso',$mes,$year);
+    $data['ingresos'] = $ingresos['data'];
+    $data['suma_ingresos'] = $ingresos['suma'];
 
-    $data['salidas'] = $this->getData('salida',$mes,$year)['data'];
-    $data['suma_salidas'] = $this->getData('salida',$mes,$year)['suma'];
+    $salidas = $this->getData('salida',$mes,$year);
+    $data['salidas'] = $salidas['data'];
+    $data['suma_salidas'] = $salidas['suma'];
 
 
     return [
@@ -59,8 +61,6 @@ class DefaultController extends ControllerBase {
   }
   public function getData($tipo,$mes,$year)
   {
-    $fecha_inicio = $this->FirstLastDay($mes, $year, 'first');
-    $fecha_fin = $this->FirstLastDay($mes, $year, 'last');
 
     $query = db_select('node_field_data', 'nfd')->distinct();
              $query->fields('nfd',['nid','title']);
@@ -73,9 +73,16 @@ class DefaultController extends ControllerBase {
              $query->join('node__field_tipo','nft','nft.entity_id = nfd.nid');
              $query->join('node__field_fecha','nff','nff.entity_id = nfd.nid');
              $query->condition('nfd.type','caja');
-             //$query->condition('nff.field_fecha_value',[$fecha_inicio,$fecha_fin],'BETWEEN');
              $query->orderby('nff.field_fecha_value');
              $query->condition('nft.field_tipo_value',$tipo);
+
+    $fecha_inicio = $this->FirstLastDay($mes, $year, 'first');
+    $fecha_fin = $this->FirstLastDay($mes, $year, 'last');
+
+    if (strlen($fecha_inicio)>0)
+    $query->condition('nff.field_fecha_value',[$fecha_inicio,$fecha_fin],'BETWEEN');
+
+
 
     $query = $query->execute()->fetchAll();
     $result = [];
@@ -98,6 +105,8 @@ class DefaultController extends ControllerBase {
   }
   public function FirstLastDay($month,$year,$sw)
   {
+
+  if ($year>0 & $month>0) {
     $fecha = '';
     switch ($sw) {
       case 'first':
@@ -106,8 +115,11 @@ class DefaultController extends ControllerBase {
       case 'last':
         $fecha = date('Y-m-d',mktime(0, 0, 0, $month+1, $day = 1, $year)-1);
         break;
-
     }
+  }else{
+    $fecha = null;
+  }
+
     return $fecha;
   }
 
