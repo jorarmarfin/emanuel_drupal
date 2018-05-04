@@ -1,0 +1,11 @@
+flujo_caja.librerias:
+  version: 8.x
+  js:
+    js/flujo_caja.js: {}
+  css:
+    theme:
+      css/flujo_caja.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

@@ -36,7 +36,12 @@ class DefaultController extends ControllerBase {
 
     return [
       '#theme' => 'flujo_caja',
-      '#data' => $data
+      '#data' => $data,
+      '#attached'=>[
+          'library'=>[
+            'flujo_caja/flujo_caja.librerias'
+          ]
+      ]
     ];
   }
   private function getYears() {
@@ -106,7 +111,6 @@ class DefaultController extends ControllerBase {
   public function FirstLastDay($month,$year,$sw)
   {
 
-  if ($year>0 & $month>0) {
     $fecha = '';
     switch ($sw) {
       case 'first':
@@ -116,9 +120,6 @@ class DefaultController extends ControllerBase {
         $fecha = date('Y-m-d',mktime(0, 0, 0, $month+1, $day = 1, $year)-1);
         break;
     }
-  }else{
-    $fecha = null;
-  }
 
     return $fecha;
   }
