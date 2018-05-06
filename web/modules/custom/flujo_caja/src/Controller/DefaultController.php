@@ -30,9 +30,9 @@ class DefaultController extends ControllerBase {
     $data['suma_ingresos'] = $ingresos['suma'];
 
     $salidas = $this->getData('salida',$mes,$year);
-    $data['salidas'] = $salidas['data'];
-    $data['suma_salidas'] = $salidas['suma'];
+    $porcentajes = $this->getPorcentajes('ingreso',$mes,$year,$ingresos['suma']);
 
+    $data['porcentajes'] = $porcentajes;
 
     return [
       '#theme' => 'flujo_caja',
@@ -77,9 +77,11 @@ class DefaultController extends ControllerBase {
              $query->join('taxonomy_term_field_data','ttfd','ttfd.tid = nfc.field_concepto_target_id');
              $query->join('node__field_tipo','nft','nft.entity_id = nfd.nid');
              $query->join('node__field_fecha','nff','nff.entity_id = nfd.nid');
+             $query->join('node__field_tercera_semana','nfts','nfts.entity_id = nfd.nid');
              $query->condition('nfd.type','caja');
-             $query->orderby('nff.field_fecha_value');
              $query->condition('nft.field_tipo_value',$tipo);
+             $query->condition('nfts.field_tercera_semana_value',0);
+             $query->orderby('nff.field_fecha_value');
 
     $fecha_inicio = $this->FirstLastDay($mes, $year, 'first');
     $fecha_fin = $this->FirstLastDay($mes, $year, 'last');
@@ -106,6 +108,51 @@ class DefaultController extends ControllerBase {
     return[
       'data' => $result,
       'suma' => $suma
+    ];
+  }
+  public function getPorcentajes($tipo,$mes,$year,$suma)
+  {
+
+    $query = db_select('node_field_data', 'nfd')->distinct();
+             $query->fields('nfd',['nid','title']);
+             $query->addField('nfm','field_monto_value');
+             $query->addField('ttfd','name');
+             $query->addField('nff','field_fecha_value');
+             $query->join('node__field_monto','nfm','nfm.entity_id = nfd.nid');
+             $query->join('node__field_concepto','nfc','nfc.entity_id = nfd.nid');
+             $query->join('taxonomy_term_field_data','ttfd','ttfd.tid = nfc.field_concepto_target_id');
+             $query->join('node__field_tipo','nft','nft.entity_id = nfd.nid');
+             $query->join('node__field_fecha','nff','nff.entity_id = nfd.nid');
+             $query->join('node__field_tercera_semana','nfts','nfts.entity_id = nfd.nid');
+             $query->condition('nfd.type','caja');
+             $query->condition('nft.field_tipo_value',$tipo);
+             $query->condition('nfts.field_tercera_semana_value',1);
+             $query->orderby('nff.field_fecha_value');
+
+    $fecha_inicio = $this->FirstLastDay($mes, $year, 'first');
+    $fecha_fin = $this->FirstLastDay($mes, $year, 'last');
+
+    if (strlen($fecha_inicio)>0)
+    $query->condition('nff.field_fecha_value',[$fecha_inicio,$fecha_fin],'BETWEEN');
+
+    $query = $query->execute()->fetchAll();
+    $result = [];
+
+    foreach ($query as $key => $item) {
+       array_push($result,[
+                'nid' => $item->nid,
+                'title' => $item->title,
+                'concepto' => $item->name,
+                'cantidad' => $item->field_monto_value,
+                'fecha' => $item->field_fecha_value,
+            ]);
+    }
+    print_r($result);
+    return[
+      'zona' => $suma*(10/100),
+      'diocesis' => $suma*(20/100),
+      'sacerdotes' => $suma*(10/100),
+      'nacional' => $result[0]['cantidad'],
     ];
   }
   public function FirstLastDay($month,$year,$sw)

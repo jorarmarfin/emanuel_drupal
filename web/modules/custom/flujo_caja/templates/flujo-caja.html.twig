@@ -58,59 +58,36 @@
 		</table>
 	</div>
 	<div class="mytabla">
-		<p><h2>Total de Salidas</h2></p>
+		<p><h2>Porcentajes</h2></p>
 		<table>
 			<thead>
 				<tr>
-				<th>#</th>
-				<th>Fecha</th>
 				<th>Concepto</th>
 				<th>Monto</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for salida in data.salidas %}
-
 				<tr>
-					<td>{{loop.index}}</td>
-					<td>{{salida['fecha']}}</td>
-					<td>{{salida['concepto']}}</td>
-					<td><span class="cantidad_de_salida">{{salida['cantidad']}}</span> </td>
+					<td>Zona</td>
+					<td>{{ data['porcentajes']['zona'] }}</td>
 				</tr>
-				{% endfor %}
-			</tbody>
-			<tfoot>
 				<tr>
-					<th></th>
-					<th></th>
-					<th>Total</th>
-					<th>{{data.suma_salidas}}</th>
+					<td>Diocesis</td>
+					<td>{{ data['porcentajes']['diocesis'] }}</td>
 				</tr>
-			</tfoot>
-		</table>
-	</div>
-	<div class="mytabla">
-		<p><h2>Porcentajes</h2></p>
-		<table>
-			<thead>
 				<tr>
-				<th>prueba</th>
-				<th>valor</th>
+					<td>Sacerdote</td>
+					<td>{{ data['porcentajes']['sacerdotes'] }}</td>
 				</tr>
-			</thead>
-			<tbody>
-				{% for ingreso in data.ingresos %}
-
 				<tr>
-					<td>{{ingreso['title']}}</td>
-					<td>{{ingreso['cantidad']}}</td>
+					<td>Nacional</td>
+					<td>{{ data['porcentajes']['nacional'] }}</td>
 				</tr>
-				{% endfor %}
 			</tbody>
 			<tfoot>
 				<tr>
 					<th>Total</th>
-					<th>{{data.suma}}</th>
+					<th>{{ data['porcentajes']['zona']+data['porcentajes']['diocesis']+data['porcentajes']['sacerdotes']+data['porcentajes']['nacional'] }}</th>
 				</tr>
 			</tfoot>
 		</table>
