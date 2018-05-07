@@ -1,0 +1,7 @@
+flujo_caja.config_form:
+  title: 'Flujo de caja'
+  route_name: flujo_caja.config_form
+  description: 'Configuracion de porcentajes'
+  parent: system.admin_config_ui
+  weight: 99
+

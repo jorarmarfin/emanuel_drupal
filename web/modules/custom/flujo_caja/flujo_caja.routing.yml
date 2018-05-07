@@ -1,4 +1,3 @@
-
 flujo_caja.default_controller_mostrar:
   path: '/flujo_caja/mostrar'
   defaults:
@@ -6,3 +5,14 @@ flujo_caja.default_controller_mostrar:
     _title: 'Muestra flujo de caja'
   requirements:
     _permission: 'access content'
+
+flujo_caja.config_form:
+  path: '/admin/config/user-interface/flujo_caja'
+  defaults:
+    _form: '\Drupal\flujo_caja\Form\ConfigForm'
+    _title: 'Configuracion de flujo de caja'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+

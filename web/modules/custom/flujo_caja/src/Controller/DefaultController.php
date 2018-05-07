@@ -112,6 +112,11 @@ class DefaultController extends ControllerBase {
   }
   public function getPorcentajes($tipo,$mes,$year,$suma)
   {
+    #Datos de Configuracion
+    $config = \Drupal::config('flujo_caja.config');
+    $por_zona = (int)$config->get('zona');
+    $por_diocesis = (int)$config->get('diocesis');
+    $por_sacerdotes = (int)$config->get('sacerdotes');
 
     $query = db_select('node_field_data', 'nfd')->distinct();
              $query->fields('nfd',['nid','title']);
@@ -147,11 +152,10 @@ class DefaultController extends ControllerBase {
                 'fecha' => $item->field_fecha_value,
             ]);
     }
-    print_r($result);
     return[
-      'zona' => $suma*(10/100),
-      'diocesis' => $suma*(20/100),
-      'sacerdotes' => $suma*(10/100),
+      'zona' => $suma*($por_zona/100),
+      'diocesis' => $suma*($por_diocesis/100),
+      'sacerdotes' => $suma*($por_sacerdotes/100),
       'nacional' => $result[0]['cantidad'],
     ];
   }
