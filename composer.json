@@ -23,6 +23,7 @@
         "drupal/at_tools": "^3.2",
         "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/backup_migrate": "^4.0",
+        "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/console": "^1.0.2",
         "drupal/context": "^4.0@beta",
         "drupal/core": "~8.5.3",
