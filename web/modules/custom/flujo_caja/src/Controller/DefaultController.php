@@ -152,11 +152,12 @@ class DefaultController extends ControllerBase {
                 'fecha' => $item->field_fecha_value,
             ]);
     }
+    $nacional = (array_key_exists('0', $result)) ? $result[0]['cantidad'] : 0 ;
     return[
       'zona' => $suma*($por_zona/100),
       'diocesis' => $suma*($por_diocesis/100),
       'sacerdotes' => $suma*($por_sacerdotes/100),
-      'nacional' => $result[0]['cantidad'],
+      'nacional' => $nacional,
     ];
   }
   public function FirstLastDay($month,$year,$sw)
