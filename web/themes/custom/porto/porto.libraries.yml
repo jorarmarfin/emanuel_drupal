@@ -22,6 +22,7 @@ global-styling:
       css/skins/default.css: {}
       css/h.css: {}
       css/custom.css: {}
+      css/mycustom.css: {}
 
   js:
 
