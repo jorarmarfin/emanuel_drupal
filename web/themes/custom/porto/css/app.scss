@@ -1,12 +1,17 @@
 $azul_base:#0088cc;
-.b-fc-ingresos{
-	border: 1px solid #ddd;
+$rojo_base:#F45A58;
+$verde_base:#00ABB0;
+
+.bor-bloq{
+	//border: 1px solid #ddd;
     border-radius: 5px;
-    color: #333;
+    //color: #333;
     margin-bottom: 35px;
     margin-right: 0;
     padding: 20px;
     position: relative;
+}
+.tit-bloq-azul{
     h2{
     	background-color:$azul_base;
     	color:white;
@@ -17,6 +22,32 @@ $azul_base:#0088cc;
 	    border-radius: 5px;
 	    margin-bottom: 13px;
     }
+}
+.tit-bloq-rojo{
+    h2{
+    	background-color:$rojo_base;
+    	color:white;
+	    font-size: 1.3em;
+	    text-transform: uppercase;
+	    font-weight: 500;
+	    text-align: center;
+	    border-radius: 5px;
+	    margin-bottom: 13px;
+    }
+}
+.tit-bloq-verde{
+    h2{
+    	background-color:$verde_base;
+    	color:white;
+	    font-size: 1.3em;
+	    text-transform: uppercase;
+	    font-weight: 500;
+	    text-align: center;
+	    border-radius: 5px;
+	    margin-bottom: 13px;
+    }
+}
+.reng-bloq{
     .views-row{
     	margin-bottom: 2px;
     	border-bottom-color: #ccc;
