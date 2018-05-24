@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains galeria_facebook.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function galeria_facebook_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the galeria_facebook module.
+    case 'help.page.galeria_facebook':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Galeria de fotos de Facebook') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function galeria_facebook_theme() {
+  return [
+    'galeria_facebook' => [
+      'template' => 'galeria-facebook',
+      'variables' => [
+          'data' => NULL
+        ],
+    ],
+  ];
+}

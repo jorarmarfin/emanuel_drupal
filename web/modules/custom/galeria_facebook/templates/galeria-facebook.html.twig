@@ -1,0 +1,11 @@
+<!-- Add you custom twig html here -->
+<div class="row">
+	{% for album in data.albums %}
+	<div class="col-md-4">
+		<span class="img-thumbnail">
+            <img alt="" width="200px" class="img-responsive" src="https://graph.facebook.com/v3.0/{{album['cover_photo']['id']}}/picture?access_token={{data['token']}}">
+        </span>
+
+	</div><!--span-->
+	{% endfor %}
+</div><!--row-->

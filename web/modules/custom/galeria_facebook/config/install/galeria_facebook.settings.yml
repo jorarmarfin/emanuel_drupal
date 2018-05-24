@@ -1,0 +1,2 @@
+galeria_facebook:
+  page_fields: "id,name,description,link,cover_photo,count"

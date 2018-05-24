@@ -1,0 +1,11 @@
+galeria_facebook.librerias:
+  version: 8.x
+  js:
+    js/galeria_facebook.js: {}
+  css:
+    theme:
+      css/galeria_facebook.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

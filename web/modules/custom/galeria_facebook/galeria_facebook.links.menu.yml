@@ -1,0 +1,7 @@
+galeria_facebook.settings_form:
+  title: 'Galeria de Facebook'
+  route_name: galeria_facebook.settings_form
+  description: 'Configuracion de la Galeria de Facebook'
+  parent: system.admin_config_ui
+  weight: 99
+
