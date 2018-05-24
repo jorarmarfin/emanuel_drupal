@@ -2,10 +2,21 @@
 <div class="row">
 	{% for album in data.albums %}
 	<div class="col-md-4">
-		<span class="img-thumbnail">
-            <img alt="" width="200px" class="img-responsive" src="https://graph.facebook.com/v3.0/{{album['cover_photo']['id']}}/picture?access_token={{data['token']}}">
-        </span>
-
+		<div class="portfolio-item">
+			<a href="/drupal/porto/portfolio-single-wide-slider">
+				<span class="thumb-info thumb-info-lighten">
+					<span class="thumb-info-wrapper">
+						<img class="img-responsive" width="200px" height="200px" alt="Presentation" src="https://graph.facebook.com/v3.0/{{album['cover_photo']['id']}}/picture?access_token={{data['token']}}">
+						<span class="thumb-info-title">
+							<span class="thumb-info-inner">{{album['name']}}</span>
+						</span>
+						<span class="thumb-info-action">
+							<span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+						</span>
+					</span>
+				</span>
+			</a>
+		</div>
 	</div><!--span-->
 	{% endfor %}
 </div><!--row-->
