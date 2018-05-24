@@ -1,0 +1,5 @@
+
+administrar flujo caja:
+  title: 'Administrar Flujo de Caja'
+  description: 'Solo los coordinadores deben acceder a este modulo'
+  restrict access: true

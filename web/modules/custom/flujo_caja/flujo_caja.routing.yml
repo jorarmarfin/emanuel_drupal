@@ -4,7 +4,7 @@ flujo_caja.default_controller_mostrar:
     _controller: '\Drupal\flujo_caja\Controller\DefaultController::mostrar'
     _title: 'Genera Porcentajes'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'administrar flujo caja'
 
 flujo_caja.config_form:
   path: '/admin/config/user-interface/flujo_caja'
