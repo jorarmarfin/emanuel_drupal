@@ -21,21 +21,35 @@ class DefaultController extends ControllerBase {
     $config = \Drupal::config('galeria_facebook.settings');
     $appId = $config->get('appid');
     $appSecret = $config->get('app_secret');
-    $access_token = $config->get('access_token');
     $fields = $config->get('page_fields');
     $fb_page_id = $config->get('pageid');
     $sw_token = $config->get('usar_access_token');
+    $cnt_albums = $config->get('number_albums');
 
-    $graphAlbLink = "https://graph.facebook.com/v3.0/{$fb_page_id}/albums?fields={$fields}&access_token={$access_token}";
+    if ($sw_token) {
+      $access_token = $config->get('access_token');
+    } else {
+      $graphActLink = "https://graph.facebook.com/oauth/access_token?client_id={$appId}&client_secret={$appSecret}&grant_type=client_credentials";
 
-    $jsonData = file_get_contents($graphAlbLink);
-    $fbAlbumObj = json_decode($jsonData, true, 512, JSON_BIGINT_AS_STRING);
+      $accessTokenJson = file_get_contents($graphActLink);
+      $accessTokenObj = json_decode($accessTokenJson);
+      $access_token = $accessTokenObj->access_token;
+    }
+
+      $graphAlbLink = "https://graph.facebook.com/v3.0/{$fb_page_id}/albums?fields={$fields}&access_token={$access_token}";
+      $jsonData = file_get_contents($graphAlbLink);
+      $fbAlbumObj = json_decode($jsonData, true, 512, JSON_BIGINT_AS_STRING);
+
+
 
     // Facebook albums content
     $fbAlbumData = $fbAlbumObj['data'];
     $data['albums'] = $fbAlbumData;
     $data['token'] = $access_token;
-print_r($data);
+    $data['pageid'] = $fb_page_id;
+    $data['cnt_albums'] = $cnt_albums;
+
+#print_r($data);
     return [
       '#theme' => 'galeria_facebook',
       '#data' => $data,
